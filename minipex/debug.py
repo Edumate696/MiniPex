@@ -21,27 +21,28 @@ class Logger:
     DEBUG = _logging.DEBUG
     NOTSET = _logging.NOTSET
 
-    def __init__(self):
-        pass
-
     @staticmethod
-    def __log(level, msg, *params):
+    def __log(level, msg, *params) -> None:
         Logger.__logger.log(level, msg, *params, stacklevel=3)
 
     @staticmethod
-    def log(level, msg, *params):
+    def log(level, msg, *params) -> None:
         if not isinstance(level, int):
             raise TypeError("level must be an integer")
         Logger.__log(level, msg, *params)
 
     @staticmethod
-    def info(msg, *params):
+    def info(msg, *params) -> None:
         Logger.__log(Logger.INFO, msg, *params)
 
     @staticmethod
-    def warn(msg, *params):
+    def warn(msg, *params) -> None:
         Logger.__log(Logger.WARNING, msg, *params)
 
     @staticmethod
-    def debug(msg, *params):
+    def debug(msg, *params) -> None:
         Logger.__log(Logger.DEBUG, msg, *params)
+
+    @staticmethod
+    def setLevel(level: int) -> None:
+        Logger.__logger.setLevel(level)

@@ -7,8 +7,13 @@ authors = ["Arpan Mahanty <edumate696@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 poetry-version = "^0.1.5"
+argparse = "^1.4.0"
+pathlib = "^1.0.1"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+minipex = 'minipex.console:run'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
